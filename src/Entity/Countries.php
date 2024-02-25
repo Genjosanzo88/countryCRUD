@@ -20,6 +20,15 @@ class Countries
     private ?string $country = null;
 
     #[ORM\Column(length: 255)]
+    private ?string $capital = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $languages = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $timezones = null;
+
+    #[ORM\Column(length: 255)]
     private ?string $flag = null;
 
     #[ORM\Column(length: 255)]
@@ -54,6 +63,43 @@ class Countries
 
         return $this;
     }
+
+    public function getCapital(): ?string
+    {
+        return $this->capital;
+    }
+
+    public function setCapital(string $capital): static
+    {
+        $this->capital = $capital;
+
+        return $this;
+    }
+
+    public function getLanguages(): ?string
+    {
+        return $this->languages;
+    }
+
+    public function setLanguages(string $languages): static
+    {
+        $this->languages = $languages;
+
+        return $this;
+    }
+
+    public function getTimezones(): ?string
+    {
+        return $this->timezones;
+    }
+
+    public function setTimezones(string $timezones): static
+    {
+        $this->timezones = $timezones;
+
+        return $this;
+    }
+
 
     public function getFlag(): ?string
     {

@@ -12,9 +12,22 @@
     </div>
 </div>
 <div class="form-group">
+    <label for="capital" class="form-label">Capital</label>
+    <div id="capital-message"></div>
+    {{ form_widget(form.capital, {'attr': {'class': 'form-control capital-input'}}) }}
+</div>
+<div class="form-group">
     <label for="currency" class="form-label">Currency</label>
     <div id="currency-message"></div>
     {{ form_widget(form.currency, {'attr': {'class': 'form-control currency-input'}}) }}
+</div>
+<div class="form-group">
+    <label for="languages" class="form-label">Languages</label>
+    {{ form_widget(form.languages, {'attr': {'class': 'form-control lang-input'}}) }}
+</div>
+<div class="form-group">
+    <label for="timezones" class="form-label">Timezones</label>
+    {{ form_widget(form.timezones, {'attr': {'class': 'form-control zone-input'}}) }}
 </div>
 <div class="form-group">
     <label for="notes" class="form-label">Notes</label>

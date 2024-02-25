@@ -39,20 +39,12 @@ class CountriesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // Obtener la moneda seleccionada del formulario
             $selectedCurrency = $form->get('currency')->getData();
+            $selectedFlag = $form->get('flag')->getData();
+            $selectedCapital = $form->get('capital')->getData();
+
+            $country->setFlag($selectedCapital);
             $country->setCurrency($selectedCurrency);
-
-            // Obtener el flag seleccionado del formulario
-            $selectedCountryName = $form->get('country')->getData();
-            $selectedCountry = array_filter($countriesData, function ($countryData) use ($selectedCountryName) {
-                return $countryData['name']['common'] === $selectedCountryName;
-            });
-
-            // Verificar si se encontró el país seleccionado y establecer su bandera
-            if (!empty($selectedCountry)) {
-                $selectedCountryData = reset($selectedCountry);
-                $flag = $selectedCountryData['flags']['png'] ?? null;
-                $country->setFlag($flag);
-            }
+            $country->setFlag($selectedFlag);
 
             $entityManager->persist($country);
             $entityManager->flush();

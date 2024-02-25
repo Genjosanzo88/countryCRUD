@@ -19,8 +19,7 @@
                         <th>ID</th>
                         <th>Flag</th>
                         <th>Country</th>
-                        <th>Currency</th>
-                        <th>Notes</th>
+                        <th>Capital</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -29,9 +28,8 @@
                         <tr>
                             <td>{{ country.id }}</td>
                             <td><img src="{{ country.flag }}" alt="Flag" style="max-width: 50px;"></td>
-                            <td>{{ country.country }}</td>
-                            <td>{{ country.currency }}</td>
-                            <td>{{ country.notes }}</td>
+                            <td>{{ country.country }} </td>
+                            <td>{{ country.capital }}</td>
                             <td>
                                 <a href="{{ path('app_countries_show', {'id': country.id}) }}" class="btn btn-info btn-sm">Show</a>
                                 <a href="{{ path('app_countries_edit', {'id': country.id}) }}" class="btn btn-primary btn-sm">Edit</a>

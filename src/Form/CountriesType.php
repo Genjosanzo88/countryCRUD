@@ -24,6 +24,9 @@ class CountriesType extends AbstractType
             ->add('flag', HiddenType::class, [
                 'attr' => ['class' => 'flag-input']
             ])
+            ->add('capital')
+            ->add('languages')
+            ->add('timezones')
             ->add('notes');
     }
 
