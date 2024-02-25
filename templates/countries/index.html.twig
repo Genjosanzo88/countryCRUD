@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Countries index{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Countries index</h1>
+
+        <div class="row mb-3">
+            <div class="col">
+                <a href="{{ path('app_countries_new') }}" class="btn btn-primary">Create new</a>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Flag</th>
+                        <th>Country</th>
+                        <th>Currency</th>
+                        <th>Notes</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for country in countries %}
+                        <tr>
+                            <td>{{ country.id }}</td>
+                            <td><img src="{{ country.flag }}" alt="Flag" style="max-width: 50px;"></td>
+                            <td>{{ country.country }}</td>
+                            <td>{{ country.currency }}</td>
+                            <td>{{ country.notes }}</td>
+                            <td>
+                                <a href="{{ path('app_countries_show', {'id': country.id}) }}" class="btn btn-info btn-sm">Show</a>
+                                <a href="{{ path('app_countries_edit', {'id': country.id}) }}" class="btn btn-primary btn-sm">Edit</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">No records found</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

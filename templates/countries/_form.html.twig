@@ -1,0 +1,24 @@
+{{ form_start(form) }}
+<div class="form-group row">
+    <div class="col-md-6">
+        <label for="country" class="form-label">Country</label>
+        {{ form_widget(form.country, {'attr': {'class': 'form-control country-select'}}) }}
+    </div>
+    <div class="col-md-6">
+        <div class="input-group">
+            {{ form_widget(form.flag, {'attr': {'class': 'form-control-file flag-input'}}) }}
+            <img src="" class="flag-preview img-fluid" style="max-width: 50px; margin-top: 35px;">
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <label for="currency" class="form-label">Currency</label>
+    <div id="currency-message"></div>
+    {{ form_widget(form.currency, {'attr': {'class': 'form-control currency-input'}}) }}
+</div>
+<div class="form-group">
+    <label for="notes" class="form-label">Notes</label>
+    {{ form_widget(form.notes, {'attr': {'class': 'form-control'}}) }}
+</div>
+<button type="submit" class="btn btn-primary mt-4">Save</button>
+{{ form_end(form) }}

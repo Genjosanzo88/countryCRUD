@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Country Details{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="mb-0">Country Details</h1>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <td>{{ country.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Flag</th>
+                            <td><img src="{{ country.flag }}" alt="Flag" style="max-width: 50px;"></td>
+                        </tr>
+                        <tr>
+                            <th>Country</th>
+                            <td>{{ country.country }}</td>
+                        </tr>
+                        <tr>
+                            <th>Currency</th>
+                            <td>{{ country.currency }}</td>
+                        </tr>
+                        <tr>
+                            <th>Notes</th>
+                            <td>{{ country.notes }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                <a href="{{ path('app_countries_index') }}" class="btn btn-secondary">Back to List</a>
+                <a href="{{ path('app_countries_edit', {'id': country.id}) }}" class="btn btn-primary">Edit</a>
+                {{ include('countries/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
